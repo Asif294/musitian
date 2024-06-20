@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+<form class="" style="width:70%; margin:auto" method = "GET"> 
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Musician Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Album Ratting</th>
+            <th scope="col">Instrument Type</th>
+            <th scope="col">Album Name</th>             
+            <th scope="col">Release Date</th>             
+            <th scope="col">Actions</th>             
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td><a href="{% url "edit_musician" i.id%}" class="btn">{{i.musiciam}}</a></td>
+            <td>{{i.musiciam.email}}</td>
+            <td>{{i.Ratting}}</td>
+            <td>{{i.musiciam.instrument_type}}</td>
+            <td>{{i.aulbum_name}}</td>
+            <td>{{i.relese_date}}</td>
+            <td> <a href="{% url "edit_album" i.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url "delete_album" i.id %}" class="btn btn-danger">Delete</a> </p> 
+            </td>
+          {% endfor %}
+        </tbody>
+      </table>
+   
+   
+</form> 
+{% endblock  %}
+
